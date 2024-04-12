@@ -7,6 +7,7 @@ public class Cube : MonoBehaviour
     private CubeSpawner _spawner;
     private Renderer _renderer;
     private Explosion _explosion;
+    private int _separator = 2;
 
     private void OnEnable()
     {
@@ -24,13 +25,8 @@ public class Cube : MonoBehaviour
 
     public void InitCube(Transform parent)
     {
-        ChangeScale();
+        transform.localScale /= _separator;
         transform.SetParent(parent);
         _renderer.material.SetColor(Color,Random.ColorHSV());
-    }
-
-    private void ChangeScale()
-    {
-        transform.localScale /= 2;
     }
 }
