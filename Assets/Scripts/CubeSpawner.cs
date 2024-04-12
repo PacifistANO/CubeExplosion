@@ -2,20 +2,18 @@ using UnityEngine;
 
 public class CubeSpawner : MonoBehaviour
 {
-    private Cube _cube;
+    [SerializeField] private int _lowCount;
+    [SerializeField] private int _highCount;
+    [SerializeField] private int _highChance;
+
     private int _cubesCount;
-    private int _lowCount = 2;
-    private int _highCount = 4;
     private int _spawnChance = 100;
-    private int _highChance = 100;
-    private int _lowChance = 0;
     private int _failChance;
     private int _separator = 2;
 
-    public void SpawnCube(GameObject cube)
+    public void SpawnCube(Cube cube)
     {
-        _cube = cube.GetComponent<Cube>();
-        _failChance = Random.Range(_lowChance, _highChance);
+        _failChance = Random.Range(0, _highChance);
 
         if (_failChance < _spawnChance)
         {
@@ -24,7 +22,7 @@ public class CubeSpawner : MonoBehaviour
 
             for (int i = 0; i < _cubesCount; i++)
             {
-                Cube newCube = Instantiate(_cube, _cube.transform.position, Quaternion.identity);
+                Cube newCube = Instantiate(cube, cube.transform.position, Quaternion.identity);
                 newCube.InitCube(transform);
             }
         }

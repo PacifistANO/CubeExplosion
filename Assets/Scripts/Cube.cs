@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent (typeof(Renderer), typeof(Explosion))]
 public class Cube : MonoBehaviour
 {
     private const string Color = "_Color";
@@ -19,7 +20,7 @@ public class Cube : MonoBehaviour
     {
         _explosion.Explode();
         _spawner = GetComponentInParent<CubeSpawner>();
-        _spawner.SpawnCube(gameObject);
+        _spawner.SpawnCube(this);
         Destroy(gameObject);
     }
 
