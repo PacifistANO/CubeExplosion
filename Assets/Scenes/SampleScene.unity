@@ -631,6 +631,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6586999569454418483, guid: 071ae18ce5b7aff4b85d2d9a649570fe, type: 3}
+      propertyPath: _lowCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6586999569454418483, guid: 071ae18ce5b7aff4b85d2d9a649570fe, type: 3}
+      propertyPath: _highCount
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6586999569454418483, guid: 071ae18ce5b7aff4b85d2d9a649570fe, type: 3}
+      propertyPath: _highChance
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -794,13 +806,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4029257179216509292, guid: 071ae18ce5b7aff4b85d2d9a649570fe, type: 3}
-      propertyPath: _explosionForce
-      value: 700
+    - target: {fileID: 6586999569454418483, guid: 071ae18ce5b7aff4b85d2d9a649570fe, type: 3}
+      propertyPath: _lowCount
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4029257179216509292, guid: 071ae18ce5b7aff4b85d2d9a649570fe, type: 3}
-      propertyPath: _explosionRadius
-      value: 20
+    - target: {fileID: 6586999569454418483, guid: 071ae18ce5b7aff4b85d2d9a649570fe, type: 3}
+      propertyPath: _highCount
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6586999569454418483, guid: 071ae18ce5b7aff4b85d2d9a649570fe, type: 3}
+      propertyPath: _highChance
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
