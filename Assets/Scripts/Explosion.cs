@@ -10,8 +10,8 @@ public class Explosion : MonoBehaviour
     public void Explode()
     {
         Instantiate(_effect, transform.position, transform.rotation);
-        _explosionForce /= transform.lossyScale.x;
-        _explosionRadius /= transform.lossyScale.x;
+        _explosionForce /= transform.localScale.x;
+        _explosionRadius /= transform.localScale.x;
 
         foreach (Rigidbody explodableObjects in GetExplodableObjects())
             explodableObjects.AddExplosionForce(_explosionForce, transform.position, _explosionRadius);
