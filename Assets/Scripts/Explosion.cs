@@ -10,11 +10,11 @@ public class Explosion : MonoBehaviour
     public void Explode()
     {
         Instantiate(_effect, transform.position, transform.rotation);
+        _explosionForce /= transform.lossyScale.x;
+        _explosionRadius /= transform.lossyScale.x;
 
-        foreach(Rigidbody explodableObjects in GetExplodableObjects())
-        {
+        foreach (Rigidbody explodableObjects in GetExplodableObjects())
             explodableObjects.AddExplosionForce(_explosionForce, transform.position, _explosionRadius);
-        }
     }
 
     private List<Rigidbody> GetExplodableObjects()
@@ -24,10 +24,8 @@ public class Explosion : MonoBehaviour
         List<Rigidbody> cubes = new();
 
         foreach (Collider hit in hits)
-        {
-            if(hit.attachedRigidbody != null)
+            if (hit.attachedRigidbody != null)
                 cubes.Add(hit.attachedRigidbody);
-        }
 
         return cubes;
     }

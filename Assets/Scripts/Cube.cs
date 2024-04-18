@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent (typeof(Renderer), typeof(Explosion))]
+[RequireComponent(typeof(Renderer), typeof(Explosion))]
 public class Cube : MonoBehaviour
 {
     private const string Color = "_Color";
@@ -18,9 +18,12 @@ public class Cube : MonoBehaviour
 
     private void OnMouseUpAsButton()
     {
-        _explosion.Explode();
         _spawner = GetComponentInParent<CubeSpawner>();
         _spawner.SpawnCube(this);
+
+        if (_spawner.IsSpawned == false)
+            _explosion.Explode();
+
         Destroy(gameObject);
     }
 
@@ -28,6 +31,6 @@ public class Cube : MonoBehaviour
     {
         transform.localScale /= _separator;
         transform.SetParent(parent);
-        _renderer.material.SetColor(Color,Random.ColorHSV());
+        _renderer.material.SetColor(Color, Random.ColorHSV());
     }
 }
