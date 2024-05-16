@@ -5,7 +5,6 @@ public class Cube : MonoBehaviour
 {
     private const string Color = "_Color";
 
-    private CubeSpawner _spawner;
     private Renderer _renderer;
     private Explosion _explosion;
     private int _separator = 2;
@@ -18,19 +17,23 @@ public class Cube : MonoBehaviour
 
     private void OnMouseUpAsButton()
     {
-        _spawner = GetComponentInParent<CubeSpawner>();
-        _spawner.SpawnCube(this);
+        CubeSeparator splitter = GetComponentInParent<CubeSeparator>();
 
-        if (_spawner.IsSpawned == false)
-            _explosion.Explode();
+        if (splitter != null)
+            splitter.TrySplitCube(this);
 
         Destroy(gameObject);
     }
 
-    public void InitCube(Transform parent)
+    public void Init(Transform parent)
     {
+        _renderer.material.SetColor(Color, Random.ColorHSV());
         transform.localScale /= _separator;
         transform.SetParent(parent);
-        _renderer.material.SetColor(Color, Random.ColorHSV());
+    }
+
+    public void Blow()
+    {
+        _explosion.Explode();
     }
 }
